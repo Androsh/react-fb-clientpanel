@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import AppNavbar from './components/layout/AppNavbar';
 import Dashboard from './components/layout/Dashboard';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -12,6 +11,9 @@ import AddClient from './components/clients/AddClient';
 import EditClient from './components/clients/EditClient';
 import ClientDetails from './components/clients/ClientDetails';
 import Login from './components/auth/Login';
+import Settings from './components/settings/Settings';
+
+import './App.css';
 
 class App extends Component {
   render() {
@@ -46,6 +48,11 @@ class App extends Component {
                   exact
                   path="/login"
                   component={UserIsNotAuthenticated(Login)}
+                />
+                <Route
+                  exact
+                  path="/settings"
+                  component={UserIsAuthenticated(Settings)}
                 />
               </Switch>
             </div>
